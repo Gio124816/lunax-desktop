@@ -1,0 +1,71 @@
+{
+  "name": "luna-x",
+  "version": "1.0.0",
+  "description": "Luna X — AI Social Media Scheduler",
+  "main": "main.js",
+  "author": "Ardere Media LLC <giovanni@arderemedia.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win",
+    "build:linux": "electron-builder --linux",
+    "build:all": "electron-builder --mac --win --linux"
+  },
+  "dependencies": {
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.arderemedia.lunax",
+    "productName": "Luna X",
+    "copyright": "© 2026 Ardere Media LLC",
+    "files": [
+      "main.js",
+      "preload.js",
+      "lunax.html",
+      "build/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.social-networking",
+      "icon": "build/icon.icns",
+      "target": [
+        { "target": "dmg", "arch": ["x64", "arm64"] },
+        { "target": "zip", "arch": ["x64", "arm64"] }
+      ],
+      "hardenedRuntime": true,
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "Luna X uses your microphone for voice commands to create and schedule social media posts.",
+        "NSCameraUsageDescription": "Luna X may access your camera for content creation."
+      },
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
+    },
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] }
+      ]
+    },
+    "linux": {
+      "icon": "build/icon.png",
+      "target": ["AppImage", "deb"]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico"
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "Gio124816",
+      "repo": "lunax-desktop"
+    }
+  }
+}
