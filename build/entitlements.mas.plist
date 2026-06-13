@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- ── SANDBOX (required for MAS) ── -->
+  <key>com.apple.security.app-sandbox</key>
+  <true/>
+
+  <!-- ── NETWORK ── -->
+  <!-- Needed to load lunaxmedia.com, Railway backend, Meta/IG APIs, S3, AssemblyAI -->
+  <key>com.apple.security.network.client</key>
+  <true/>
+
+  <!-- ── FILE ACCESS ── -->
+  <!-- User-picked files via open panel (NSOpenPanel / dialog.showOpenDialog) -->
+  <key>com.apple.security.files.user-selected.read-write</key>
+  <true/>
+  <!-- Downloads folder — where most media lives -->
+  <key>com.apple.security.files.downloads.read-write</key>
+  <true/>
+  <!-- Pictures folder — for photo/image content -->
+  <key>com.apple.security.assets.pictures.read-write</key>
+  <true/>
+  <!-- Movies folder — for video content -->
+  <key>com.apple.security.assets.movies.read-write</key>
+  <true/>
+  <!-- Music folder — for audio/voice content -->
+  <key>com.apple.security.assets.music.read-write</key>
+  <true/>
+
+  <!-- ── MICROPHONE ── -->
+  <!-- Required for voice command feature (webkitSpeechRecognition) -->
+  <key>com.apple.security.device.audio-input</key>
+  <true/>
+
+  <!-- ── CAMERA ── -->
+  <!-- Required for content creation features -->
+  <key>com.apple.security.device.camera</key>
+  <true/>
+
+  <!-- ── JIT (required for Electron's V8 JavaScript engine) ── -->
+  <key>com.apple.security.cs.allow-jit</key>
+  <true/>
+
+  <!-- ── UNSIGNED MEMORY ── -->
+  <!-- Required for Electron — V8 generates and executes code at runtime -->
+  <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+  <true/>
+
+  <!-- ── DYLIB VALIDATION ── -->
+  <!-- Required for Electron — loads third-party native modules -->
+  <key>com.apple.security.cs.disable-library-validation</key>
+  <true/>
+</dict>
+</plist>
